@@ -18,6 +18,7 @@ def process_book_element(book_element):
     book, created = Book.objects.get_or_create(pk=book_element.get('id'))
     book.title = book_element.findtext('title')
     book.description = book_element.findtext('description')
+    book.version = book_element.findtext('version')
 
     for alias in book_element.xpath('aliases/alias'):
         scheme = alias.get('scheme')
