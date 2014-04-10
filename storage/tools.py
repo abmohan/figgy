@@ -3,8 +3,10 @@
 # Copyright (c) 2013 Safari Books Online, LLC. All rights reserved.
 
 from storage.models import Book
+from django.db import transaction
 
 
+@transaction.atomic
 def process_book_element(book_element):
     """
     Process a book element into the database.
